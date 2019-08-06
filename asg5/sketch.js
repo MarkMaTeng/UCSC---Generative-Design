@@ -50,16 +50,18 @@ function onMIDIsLoaded(pianoRolls) {
 
     // train the midi
     let pd = markov.train(allPianoRolls);
-    let text = markov.generateTrack(pd);
-    // let text = midiPlayer.text2Midi(midiText);
-    // let mi = midiPlayer.parseMidi(text);
-    // let pr = midiPlayer.notes2PianoRoll(mi.duration, mi.notes);
+    console.log(pd);
+    let track = markov.generateTrack(pd);
+    let text = midiPlayer.text2Midi(track);
+    console.log(text);
+    let mi = midiPlayer.parseMidi(text);
+    let pr = midiPlayer.notes2PianoRoll(mi.duration, mi.notes);
 
-    // midiPlayer.pianoRolls.push(pr);
-    // console.log(midiPlayer.pianoRolls);
-    // let pianoRolll = midiPlayer.pianoRolls[3];
+    midiPlayer.pianoRolls.push(pr);
+     //console.log(midiPlayer.pianoRolls);
+    let pianoRolll = midiPlayer.pianoRolls[3];
 
-    // midiPlayer.setPianoRoll(pianoRolll, tsCallback);
+    midiPlayer.setPianoRoll(pianoRolll, tsCallback);
 
     // let midiTextx = midiPlayer.pianoRoll2Text(pianoRoll);
 
