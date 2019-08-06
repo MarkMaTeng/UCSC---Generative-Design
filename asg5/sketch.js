@@ -53,7 +53,7 @@ function onMIDIsLoaded(pianoRolls) {
     console.log(pd);
     let track = markov.generateTrack(pd);
     let text = midiPlayer.text2Midi(track);
-    console.log(text);
+    console.log(track);
     let mi = midiPlayer.parseMidi(text);
     let pr = midiPlayer.notes2PianoRoll(mi.duration, mi.notes);
 
