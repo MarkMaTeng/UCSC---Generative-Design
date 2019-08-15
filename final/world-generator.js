@@ -81,7 +81,7 @@ class WorldGenerator{
 	}
 
 	loadtexture(){
-		this.grass = loadImage('assets/grass.png');
+		this.grass = loadImage('assets/grass.jpg');
   		this.dirt = loadImage('assets/dirt.png');
   		this.water = loadImage('assets/water.jpg');
   		this.deepwater = loadImage('assets/deepwater.jpg');
