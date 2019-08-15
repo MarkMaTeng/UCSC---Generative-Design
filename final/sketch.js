@@ -4,10 +4,17 @@ var p = [];
 var n = 20;
 let pg;
 let time = 0;
+let bgm;
+function preload() {
+  // preload() runs once
+  bgm = loadSound('assets/bgm.mp3');
+}
 
 function setup() {
   	//Create the Canvas
   	createCanvas(700, 700, WEBGL);
+
+  	
   	//cameraLocation = createVector(0, 0, (height/2.0) / tan(PI*30.0 / 180.0));
   	sketchLocation = createVector(0, 0, 0);
 
@@ -29,14 +36,14 @@ function setup() {
     for (var i = 0; i < n; i++) {
         p[i] = new Star(350, 350);
     };
-
+    //bgm.play();
 }
 
 function draw() {
 	//Make the background black
 	background(0);
 
-
+	
 	// Camera and Light
 	rotateX(PI/2);
 	//rotateY(1);
@@ -50,7 +57,6 @@ function draw() {
 	//pg.stroke('rgba(50,110,200,0.25)');
 	for (var i = 0; i < n; i++) {
 		p[i].addTime(time);
-
         p[i].move();
         p[i].draw(pg);
     };
@@ -68,6 +74,9 @@ function draw() {
 
 	if(time > 0){
 		time -= 1;
+		if(!bgm.isPlaying()){
+			bgm.play();
+		}
 	}
 
 	
